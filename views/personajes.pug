@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  #container
+    .card(style='width: 18rem')
+      img.card-img-top(src=personaje.image alt=personaje.name)
+      .card-body
+        p
+          strong
+          = personaje.name
+        p
+          strong 
+          = personaje.gender === 'Male' ? 'Masculino' : 'Femenino'
+        p
+          strong 
+          - const fecha = new Date(personaje.created)
+          = `${fecha.getMonth() + 1}/${fecha.getDate()}/${fecha.getFullYear()}`
+        p
+          strong
+          a(href=personaje.url download) Descargar su ficha JSON
+        p
+           a(href='/personajes') Volver a la lista completa
+
